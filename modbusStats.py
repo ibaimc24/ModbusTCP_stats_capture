@@ -21,7 +21,6 @@ def newFile(filename):
 def updateStats(packet,timestamp):
     mb_pkt = Modbus(packet.data.data.data, timestamp)
     code = mb_pkt.get_code()
-    print(code)
     size = mb_pkt.get_size() # Modbus data size in Bytes
     #stat.new_pkt(timestamp)
     stat.add_code(code, timestamp, size)
