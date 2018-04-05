@@ -10,7 +10,11 @@ class Stats:
         # FCODE 1 stats
         self.flag_1 = True
         self.flag_2 = True
+        self.flag_3 = True
+        self.flag_4 = True
+        self.flag_15 = True
 
+        self.n_others = 0
         # FCODE 2 stats
 
 
@@ -91,55 +95,128 @@ class Stats:
             self.last_ts_2 = datetime.datetime.fromtimestamp(ts)
 
     def __3__(self, ts, psize):
-        None
+        if self.flag_3:             # First iteration
+            self.n_3 = 1            # Number of packets
+            self.total_difs_3 = 0   # Sum of timestamps of all packets
+            self.last_ts_3 = datetime.datetime.fromtimestamp(ts)
+            self.psize_3_10 = 0     # Number of packets with 10 Bytes length
+            self.psize_3_12 = 0     # Number of packets with 12 Bytes length
+            self.psize_3_others = 0   # Number of packets with other Bytes length
+            #self.initial_ts = datetime.datetime.fromtimestamp(ts)   # To calculate pkts/sec
+            self.flag_3 = False
+        else:
+            self.n_3 += 1
+            if psize is 10:
+                self.psize_3_10 += 1
+            elif psize is 12:
+                self.psize_3_12 += 1
+            else:
+                self.psize_3_others += 1
+
+            dif = datetime.datetime.fromtimestamp(ts) - self.last_ts_3
+            self.total_difs_3 += dif.total_seconds()
+
+            if self.n_3 > 2:        # Difference in seconds between 2 packets with same func code
+                self.dif_media_3 = self.total_difs_3/(self.n_3 - 1)
+
+            self.last_ts_3 = datetime.datetime.fromtimestamp(ts)
 
     def __4__(self, ts, psize):
-        None
+        if self.flag_4:             # First iteration
+            self.n_4 = 1            # Number of packets
+            self.total_difs_4 = 0   # Sum of timestamps of all packets
+            self.last_ts_4 = datetime.datetime.fromtimestamp(ts)
+            self.psize_4_10 = 0     # Number of packets with 10 Bytes length
+            self.psize_4_12 = 0     # Number of packets with 12 Bytes length
+            self.psize_4_others = 0   # Number of packets with other Bytes length
+            #self.initial_ts = datetime.datetime.fromtimestamp(ts)   # To calculate pkts/sec
+            self.flag_4 = False
+        else:
+            self.n_4 += 1
+            if psize is 10:
+                self.psize_4_10 += 1
+            elif psize is 12:
+                self.psize_4_12 += 1
+            else:
+                self.psize_4_others += 1
+
+            dif = datetime.datetime.fromtimestamp(ts) - self.last_ts_4
+            self.total_difs_4 += dif.total_seconds()
+
+            if self.n_4 > 2:        # Difference in seconds between 2 packets with same func code
+                self.dif_media_4 = self.total_difs_4/(self.n_4 - 1)
+
+            self.last_ts_4 = datetime.datetime.fromtimestamp(ts)
+
 
     def __5__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __6__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __7__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __8__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __11__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __12__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __15__(self, ts, psize):
-        None
+        if self.flag_15:             # First iteration
+            self.n_15 = 1            # Number of packets
+            self.total_difs_15 = 0   # Sum of timestamps of all packets
+            self.last_ts_15 = datetime.datetime.fromtimestamp(ts)
+            self.psize_15_10 = 0     # Number of packets with 10 Bytes length
+            self.psize_15_12 = 0     # Number of packets with 12 Bytes length
+            self.psize_15_others = 0   # Number of packets with other Bytes length
+            #self.initial_ts = datetime.datetime.fromtimestamp(ts)   # To calculate pkts/sec
+            self.flag_15 = False
+        else:
+            self.n_15 += 1
+            if psize is 10:
+                self.psize_15_10 += 1
+            elif psize is 12:
+                self.psize_15_12 += 1
+            else:
+                self.psize_15_others += 1
+
+            dif = datetime.datetime.fromtimestamp(ts) - self.last_ts_15
+            self.total_difs_15 += dif.total_seconds()
+
+            if self.n_15 > 2:        # Difference in seconds between 2 packets with same func code
+                self.dif_media_15 = self.total_difs_15/(self.n_15 - 1)
+
+            self.last_ts_15 = datetime.datetime.fromtimestamp(ts)
 
     def __16__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __17__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __20__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __21__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __22__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __23__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __24__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def __43__(self, ts, psize):
-        None
+        self.n_others += 1
 
     def get_stats(self):
         media = self.sum_2/self.n_2
@@ -149,15 +226,36 @@ class Stats:
         func = self.switcher.get(option, lambda: "Invalid Code")
         func(ts, psize)
 
-    def to_file(self, filename='venv/data/stats.out'):
+    def to_file(self, filename='venv/log/stats.log'):
         wf = open(filename, 'a')
         print("MODBUS CODE\t | \tN. PACKETS\t | \tTIME BTWEEN PKTS(s)\t | \tPCKT SIZES", file=wf)
+
         print(str(1) + "\t\t\t | \t\t" + str(self.n_1) + "\t | \t" + str(self.dif_media_1) + "\t | \t[10 Bytes:" + str(
             self.psize_1_10) + ", 12 Bytes:" + str(self.psize_1_12) + ", Other size:" + str(self.psize_1_others) + "]",
               file=wf)
+
         print(str(2) + "\t\t\t | \t\t" + str(self.n_2) + "\t | \t" + str(self.dif_media_2) + "\t | \t[10 Bytes:" + str(
             self.psize_2_10) + ", 12 Bytes:" + str(self.psize_2_12) + ", Other size:" + str(self.psize_2_others)+ "]",
               file=wf)
+
+        '''
+        print(str(3) + "\t\t\t | \t\t" + str(self.n_3) + "\t | \t" + str(self.dif_media_3) + "\t | \t[10 Bytes:" + str(
+            self.psize_3_10) + ", 12 Bytes:" + str(self.psize_3_12) + ", Other size:" + str(self.psize_3_others) + "]",
+              file=wf)
+        
+        print(str(4) + "\t\t\t | \t\t" + str(self.n_4) + "\t | \t" + str(self.dif_media_4) + "\t | \t[10 Bytes:" + str(
+            self.psize_4_10) + ", 12 Bytes:" + str(self.psize_4_12) + ", Other size:" + str(self.psize_4_others) + "]",
+              file=wf)
+        '''
+
+
+        print(str(15) + "\t\t\t | \t\t" + str(self.n_15) + "\t | \t" + str(self.dif_media_15) + "\t | \t[10 Bytes:" + str(
+            self.psize_15_10) + ", 12 Bytes:" + str(self.psize_15_12) + ", Other size:" + str(self.psize_15_others) + "]",
+              file=wf)
+
+
+        print("OTHERS: "+str(self.n_others), file=wf)
+
 
 
     '''

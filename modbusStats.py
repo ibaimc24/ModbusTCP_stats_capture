@@ -10,7 +10,7 @@ N_PATH = "venv/data/short/"
 
 
 TMPFILE = "venv/data/merged/Modbus/3.pcap"
-FILE_MAX_SIZE = 10*1024*1024 # in Bytes : 500MB
+FILE_MAX_SIZE = 70*1024*1024 # in Bytes : 500MB
 
 stat = utils.Stats()
 

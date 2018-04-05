@@ -1,0 +1,5 @@
+MODBUS CODE	 | 	N. PACKETS	 | 	TIME BTWEEN PKTS(s)	 | 	PCKT SIZES
+1			 | 		299631	 | 	0.0741514301571952	 | 	[10 Bytes:151371, 12 Bytes:148259, Other size:0]
+2			 | 		299632	 | 	0.07415130676065008	 | 	[10 Bytes:151372, 12 Bytes:148259, Other size:0]
+15			 | 		299631	 | 	0.07415143204952582	 | 	[10 Bytes:0, 12 Bytes:151371, Other size:148259]
+OTHERS: 0
