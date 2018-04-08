@@ -11,7 +11,6 @@ class Modbus:
     def __update__(self):
         self.__code__ = self.__raw__[7]
 
-
     def get_code(self):
         return self.__code__
 

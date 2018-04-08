@@ -10,7 +10,7 @@ N_PATH = "venv/data/short/"
 
 
 TMPFILE = "venv/data/merged/Modbus/3.pcap"
-FILE_MAX_SIZE = 20*1024*1024 # in Bytes : 500MB
+FILE_MAX_SIZE = 500*1024*1024 # in Bytes : 500MB
 
 stat = utils.Stats()
 
@@ -34,23 +34,25 @@ def main():
 
     for f in files:
         print(O_PATH + f)
-        #pcap = dpkt.pcap.Reader(open(O_PATH+f, 'rb'))
+        # pcap = dpkt.pcap.Reader(open(O_PATH+f, 'rb'))
         pcap = dpkt.pcap.Reader(open(TMPFILE, 'rb'))
 
         for ts, buf in pcap: #All packets are supposed to be Modbus
             pkg = dpkt.ethernet.Ethernet(buf)
             if w_bytes > FILE_MAX_SIZE:
                 stat.show()
-                stat.to_file()
                 file_writter.close()
-                exit(3)
                 nn_file = nn_file + 1
                 file_writter = newFile(nn_file)
                 w_bytes = 0
-
-            updateStats(pkg, ts)
+            try:
+                updateStats(pkg, ts)
+            except Exception as ex:
+                print("Broken packet.")
+                continue
             file_writter.writepkt(pkg,ts)
             w_bytes = w_bytes + len(buf) + sys.getsizeof(ts)
+        stat.to_file()
 
 
 
