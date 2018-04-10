@@ -3,7 +3,11 @@ import datetime
 
 class Stats:
 
-    def __init__(self):
+    TO_SERVER = 1
+    TO_CLIENT = 0
+
+    def __init__(self, src=''):
+        self.source_address = src
         self.initial_timestamp = None
         self.n_packets = 0
 
@@ -40,7 +44,7 @@ class Stats:
             43: self.__43__
         }
 
-    def __1__(self, ts, psize):
+    def __1__(self, ts, psize, direction):
         if self.flag_1:             # First iteration
             self.n_1 = 1            # Number of packets
             self.total_difs_1 = 0   # Sum of timestamps of all packets
@@ -67,7 +71,7 @@ class Stats:
 
             self.last_ts_1 = datetime.datetime.fromtimestamp(ts)
 
-    def __2__(self, ts, psize):
+    def __2__(self, ts, psize, direction):
         if self.flag_2:             # First iteration
             self.n_2 = 1            # Number of packets
             self.total_difs_2 = 0   # Sum of timestamps of all packets
@@ -94,7 +98,7 @@ class Stats:
 
             self.last_ts_2 = datetime.datetime.fromtimestamp(ts)
 
-    def __3__(self, ts, psize):
+    def __3__(self, ts, psize, direction):
         if self.flag_3:             # First iteration
             self.n_3 = 1            # Number of packets
             self.total_difs_3 = 0   # Sum of timestamps of all packets
@@ -121,7 +125,7 @@ class Stats:
 
             self.last_ts_3 = datetime.datetime.fromtimestamp(ts)
 
-    def __4__(self, ts, psize):
+    def __4__(self, ts, psize, direction):
         if self.flag_4:             # First iteration
             self.n_4 = 1            # Number of packets
             self.total_difs_4 = 0   # Sum of timestamps of all packets
@@ -167,7 +171,7 @@ class Stats:
     def __12__(self, ts, psize):
         self.n_others += 1
 
-    def __15__(self, ts, psize):
+    def __15__(self, ts, psize, direction):
         if self.flag_15:                # First iteration
             self.n_15 = 1               # Number of packets
             self.total_difs_15 = 0      # Sum of timestamps of all packets
@@ -215,9 +219,9 @@ class Stats:
         media = self.sum_2/self.n_2
         return media
 
-    def add_code(self, option, ts, psize):
+    def add_code(self, option, ts, psize, direction):
         func = self.switcher.get(option, lambda: "Invalid Code")
-        func(ts, psize)
+        func(ts, psize, direction)
 
     def to_file(self, filename='venv/log/stats.log'):
         wf = open(filename, 'a')
@@ -264,10 +268,15 @@ class Stats:
 
 
     def show(self):
-        None
-        #print("Code 1:" + str(self.n_1) + ":" + str(self.sum_1) + " - Packets per second: " + str(self.n_1 / datetime.datetime.second(self.sum_1)))
-        #print("Code 2:" + str(self.n_2) + ":" + str(self.sum_2)+" - Packets per second: "+str(self.n_2/self.sum_2))
-        #print("Code 3:" + str(self.n_3) + ":" + str(self.sum_3)+" - Packets per second: "+str(self.n_1/self.sum_1))
-        #print("Code 15:" + str(self.n_15) + ":" + str(self.sum_15)+" - Packets per second: "+str(self.n_15/self.sum_15))
+        print("# ------------ #"+self.source_address+"# ------------ #")
+        print("MODBUS CODE\t | \tN. PACKETS\t | \tTIME BTWEEN PKTS(s)\t | \tPCKT SIZES")
+        print(str(1) + "\t\t\t | \t\t" + str(self.n_1) + "\t | \t" + str(self.dif_media_1) + "\t | \t[10 Bytes:" + str(
+            self.psize_1_10) + ", 12 Bytes:" + str(self.psize_1_12) + ", Other size:" + str(self.psize_1_others) + "]")
+        print(str(2) + "\t\t\t | \t\t" + str(self.n_2) + "\t | \t" + str(self.dif_media_2) + "\t | \t[10 Bytes:" + str(
+            self.psize_2_10) + ", 12 Bytes:" + str(self.psize_2_12) + ", Other size:" + str(self.psize_2_others) + "]")
+        print(self.dic)
+        print(
+            str(15) + "\t\t\t | \t\t" + str(self.n_15) + "\t | \t" + str(self.dif_media_15) + "\t | \t" + str(self.dic))
+        print("------------------------------------------------------\n\n")
 
 
