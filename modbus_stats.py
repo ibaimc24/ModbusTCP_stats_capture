@@ -66,7 +66,7 @@ def main():
                 update_stats(pkg, ts, direction, stat)
             except Exception as ex:
                 continue
-            file_writter.writepkt(pkg,ts)
+            file_writter.writepkt(pkg, ts)
             w_bytes = w_bytes + len(buf) + sys.getsizeof(ts)
         stat.to_file()
 
