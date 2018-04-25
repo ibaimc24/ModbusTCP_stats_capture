@@ -42,8 +42,12 @@ class NetData:
         if type(host2) != (type(None)) and host2 not in self.hosts_ip_addr:
             self.hosts_ip_addr.append(host2)
 
-
+    def add_used_port(self, port, proto):
+        tuple = (port, proto)
+        if tuple not in self.hosts_ports:
+            self.hosts_ports.append(tuple)
 
     def show(self):
         print(self.hosts_mac_addr)
         print(self.hosts_ip_addr)
+        print(self.hosts_ports)

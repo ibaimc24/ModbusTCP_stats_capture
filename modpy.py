@@ -39,10 +39,17 @@ def check_tcp(pkt):
         if type(trnsprt) == dpkt.tcp.TCP:
             src_port = trnsprt.sport
             dst_port = trnsprt.dport
-            payload = trnsprt.data
-            print(src_port, dst_port, trnsprt.)
+            if src_port<1025:
+                nd.add_used_port(src_port, "TCP")
+            if dst_port<1025:
+                nd.add_used_port(dst_port, "TCP")
         elif type(trnsprt) == dpkt.udp.UDP:
-            print("UDP")
+            src_port = trnsprt.sport
+            dst_port = trnsprt.dport
+            if src_port<1025:
+                nd.add_used_port(src_port, "UDP")
+            if dst_port<1025:
+                nd.add_used_port(dst_port, "UDP")
     except AttributeError:      # Ignore packet if has no transport Layer
         None
 
