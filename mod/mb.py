@@ -1,4 +1,6 @@
 import dpkt
+from collections import defaultdict
+import json
 
 class Modbus:
 
@@ -19,35 +21,34 @@ class Modbus:
 
 class NetData:
 
-
     def __init__(self):
-        self.hosts_mac_addr = []
-        self.hosts_ip_addr = []
-        self.hosts_so = []
-        # self.hosts_timestamp = []
-        self.hosts_ports = []
-        self.hosts_services = []
+        self.hosts = {}
 
-    def add_mac_addr(self, host1, host2=None):
-        if host1 not in self.hosts_mac_addr:
-            self.hosts_mac_addr.append(host1)
+    def add_mac_addr(self, host):
+        if host not in self.hosts:
+            self.hosts[host] = {'ip_address': None, 'protocols':[], 'used_ports':[]}
 
-        if type(host2) != (type(None)) and host2 not in self.hosts_mac_addr:
-            self.hosts_mac_addr.append(host2)
+    def add_ip_addr(self, host, ip):
+        if host not in self.hosts:
+            self.add_mac_addr(host)
+        if ip not in self.hosts[host]:
+            self.hosts[host]['ip_address'] = ip
+        else:
+            print("IP FOUND")
 
-    def add_ip_addr(self, host1, host2=None):
-        if host1 not in self.hosts_ip_addr:
-            self.hosts_ip_addr.append(host1)
+    def add_used_port(self, host, port):
+        if host not in self.hosts:
+            self.add_mac_addr(host)
+        if port not in self.hosts[host]['used_ports']:
+            self.hosts[host]['used_ports'].append(port)
 
-        if type(host2) != (type(None)) and host2 not in self.hosts_ip_addr:
-            self.hosts_ip_addr.append(host2)
+    def add_used_protocols(self, host, protocol):
+        if host not in self.hosts:
+            self.add_mac_addr(host)
+        if protocol not in self.hosts[host]['protocols']:
+            self.hosts[host]['protocols'].append(protocol)
 
-    def add_used_port(self, port, proto):
-        tuple = (port, proto)
-        if tuple not in self.hosts_ports:
-            self.hosts_ports.append(tuple)
 
     def show(self):
-        print(self.hosts_mac_addr)
-        print(self.hosts_ip_addr)
-        print(self.hosts_ports)
+        j = {'hosts':self.hosts}
+        print(json.dumps(j, sort_keys=True, indent=4))
