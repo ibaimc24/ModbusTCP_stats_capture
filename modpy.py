@@ -16,21 +16,25 @@ LEVEL_APLICATION = 5
 
 
 def mac_addr(address):
+    """
+    Casts ip raw in string format
+    :param address:
+    :return:
+    """
+
     return ':'.join('%02x' % compat_ord(b) for b in address)
 
 
 def inet_to_str(inet):
-    # First try ipv4 and then ipv6
+    """
+    Casts ipv4 or ipv6 raw in string format
+    :param inet:
+    :return:
+    """
     try:
         return socket.inet_ntop(socket.AF_INET, inet)
     except ValueError:
         return socket.inet_ntop(socket.AF_INET6, inet)
-
-
-def check_mac_address(pkt):
-    src = mac_addr(pkt.src)
-    #dst = mac_addr(pkt.dst)
-    #nd.add_mac_addr(src, dst)
 
 
 def check_ip_address(pkt):
@@ -41,17 +45,17 @@ def check_ip_address(pkt):
 
 def check_tcp(pkt):
     try:
-        trnsprt = pkt.data.data
-        if type(trnsprt) == dpkt.tcp.TCP:
-            src_port = trnsprt.sport
-            dst_port = trnsprt.dport
+        transport = pkt.data.data
+        if type(transport) == dpkt.tcp.TCP:
+            src_port = transport.sport
+            dst_port = transport.dport
             if src_port<1025:
                 nd.add_used_port(src_port, "TCP")
             if dst_port<1025:
                 nd.add_used_port(dst_port, "TCP")
-        elif type(trnsprt) == dpkt.udp.UDP:
-            src_port = trnsprt.sport
-            dst_port = trnsprt.dport
+        elif type(transport) == dpkt.udp.UDP:
+            src_port = transport.sport
+            dst_port = transport.dport
             if src_port<1025:
                 nd.add_used_port(src_port, "UDP")
             if dst_port<1025:
@@ -67,7 +71,6 @@ def check_top_proto(pkt):
             level = LEVEL_IP
         if isinstance(pkt.data.data, dpkt.tcp.TCP):
             level = LEVEL_TCP
-        highest = pkt.data.data.data
         level = LEVEL_APLICATION
     except AttributeError:      # Found top level protocol
         None
@@ -89,6 +92,12 @@ def mac_level(pkt):  # Analyze MAC Level packet like ARP
 
 
 def ip_level(pkt):
+    """
+    Checks ip layer propierties of the given packet. Saves only private network hosts information filtering by
+    source or destination mac address.
+    :param pkt:
+    :return:
+    """
     [src_mac, dst_mac] = mac_level(pkt)
     ip_pkt = pkt.data
     if isinstance(ip_pkt, dpkt.ip.IP):
@@ -99,19 +108,28 @@ def ip_level(pkt):
         # - 1: ICMP
         ip_src_addr = inet_to_str(ip_pkt.src)
         ip_dst_addr = inet_to_str(ip_pkt.dst)
-        if ipaddress.ip_address(ip_src_addr).is_private:  # If source ip address is private, packet sender is in current network
+
+        # If source ip address is private, packet sender is in current network
+        if ipaddress.ip_address(ip_src_addr).is_private:
             nd.add_ip_addr(src_mac, ip_src_addr)
+
+        # If source ip address is private, packet receiver is in current network
         if ipaddress.ip_address(ip_dst_addr).is_private:
             nd.add_ip_addr(dst_mac, ip_dst_addr)
         return ip_src_addr, ip_dst_addr, next_proto
     elif isinstance(ip_pkt, dpkt.llc.LLC):
-        llc_pkt = ip_pkt
         nd.add_used_protocols(src_mac, "LLC")
         nd.add_used_protocols(dst_mac, "LLC")
         return None, None, None
 
 
 def tcp_level(pkt):
+    """
+    Checks transport layer propierties of the given packet. Saves only private network hosts information filtering by
+    source or destination mac address.
+    :param pkt:
+    :return:
+    """
     try:
         [src_mac, dst_mac] = mac_level(pkt)
         [ip_src_addr, ip_dst_addr, next_proto] = ip_level(pkt)
@@ -123,14 +141,19 @@ def tcp_level(pkt):
             tcp_pkt = pkt.data.data
             src_port = tcp_pkt.sport
             dst_port = tcp_pkt.dport
+
+            # If source ip address is private, packet sender is in current network. Store only most used service ports
             if ipaddress.ip_address(
-                    ip_src_addr).is_private and src_port < 1024:  # If source ip address is private, packet sender is in current network
+                    ip_src_addr).is_private and src_port < 1024:
                 nd.add_used_port(src_mac, src_port)
                 # Alanize Application layer
                 try:
                     application_level(src_mac, tcp_pkt.data)
                 except AttributeError:
                     None
+
+            # If destination ip address is private, packet receiver is in current network.
+            # Store only most used service ports
             if ipaddress.ip_address(ip_dst_addr).is_private and dst_port < 1024:
                 nd.add_used_port(dst_mac, dst_port)
                 # Alanize Application layer
@@ -157,37 +180,62 @@ def tcp_level(pkt):
 
         elif next_proto is 112:
             None
-    except Exception as ex:
+    except:
         print(next_proto)
 
+
 def is_dns(pkt):
+    """
+    Checks if a packets is DNS message
+    :param pkt:
+    :return:
+    """
     try:
-        dns = dpkt.dns.DNS(pkt)
+        dpkt.dns.DNS(pkt)
         return True
-    except Exception as ex:
+    except:
         return False
 
 
 def is_tls(pkt):
+    """
+    Checks if a packets is TLS message
+    :param pkt:
+    :return:
+    """
     try:
-        tls = dpkt.ssl.TLS(pkt)
+        dpkt.ssl.TLS(pkt)
         return True
-    except Exception as ex:
+    except:
         return False
+
 
 def is_http(pkt):
+    """
+    Checks if a packets is HTTP message
+    :param pkt:
+    :return:
+    """
     try:
-        tls = dpkt.http.Message(pkt)
+        dpkt.http.Message(pkt)
         return True
-    except Exception as ex:
+    except:
         return False
 
+
 def is_icmp(pkt):
+    """
+    Checks if a packets is ICMP message
+    :param pkt:
+    :return:
+    """
     try:
-        tls = dpkt.icmp.ICMP(pkt)
+        dpkt.icmp.ICMP(pkt)
         return True
-    except Exception as ex:
+    except:
         return False
+
+
 def application_level(host, pkt):
     if is_tls(pkt):
         nd.add_used_protocols(host, "TLS")
@@ -208,12 +256,12 @@ switcher = {
 
 
 def check_source(pkt):
-    src_mac = mac_addr(pkt.src)
     # check top level protocol
     proto = check_top_proto(pkt)
     func = switcher.get(proto, lambda: "Invalid Level")
     func(pkt)
     return None, None, proto
+
 
 def main():
     file_name = sys.argv[1]
@@ -221,14 +269,9 @@ def main():
     for ts, buf in pcap:
         pkt = dpkt.ethernet.Ethernet(buf)
         # check source
-        [mac, ip, proto] = check_source(pkt)
-        # mac = check_mac_address(pkt)
-        # ip = check_ip_address(pkt)
-        proto = check_top_proto(pkt)
-        #print("Highest protocol at level " + str(proto))
-        # check_tcp(pkt)
+        check_source(pkt)
+        check_top_proto(pkt)
     nd.show()
-
 
 
 if __name__ == "__main__":
