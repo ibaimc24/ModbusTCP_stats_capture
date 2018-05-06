@@ -38,16 +38,15 @@ def update_stats(packet, timestamp, direction, stat):
 
 def main():
     create_new_caps = False
-
-    hosts = []
     files = os.listdir(O_PATH)
-    stats_array = []
     nn_file = 1
     w_bytes = 0
     if create_new_caps:
         file_writter = new_file(nn_file)
 
     for f in files:     # Analize all files in current directory
+        hosts = []
+        stats_array = []
         print(O_PATH + f)
         pcap = dpkt.pcap.Reader(open(O_PATH + f, 'rb'))
         i = True
