@@ -19,6 +19,7 @@ class Modbus:
     def get_size(self):
         return self.__size__
 
+
 class NetData:
 
     def __init__(self):
@@ -48,7 +49,13 @@ class NetData:
         if protocol not in self.hosts[host]['protocols']:
             self.hosts[host]['protocols'].append(protocol)
 
+    def show(self, filename=None):
+        j = {'hosts': self.hosts}
+        result = json.dumps(j, sort_keys=True, indent=4)
+        if filename is None:
+            print(result)
+        else:
+            fp = open(filename, 'w')
+            print(result, file=fp)
+            fp.close()
 
-    def show(self):
-        j = {'hosts':self.hosts}
-        print(json.dumps(j, sort_keys=True, indent=4))

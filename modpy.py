@@ -39,29 +39,30 @@ def inet_to_str(inet):
 
 def check_ip_address(pkt):
     if pkt.type == dpkt.ethernet.ETH_TYPE_IP:
-        ip = pkt.data
-        nd.add_ip_addr(inet_to_str(ip.src))
+        ip_pkt = pkt.data
+        nd.add_ip_addr(inet_to_str(ip_pkt.src))
 
 
 def check_tcp(pkt):
+    # noinspection PyBroadException
     try:
         transport = pkt.data.data
         if type(transport) == dpkt.tcp.TCP:
             src_port = transport.sport
             dst_port = transport.dport
-            if src_port<1025:
+            if src_port < 1025:
                 nd.add_used_port(src_port, "TCP")
-            if dst_port<1025:
+            if dst_port < 1025:
                 nd.add_used_port(dst_port, "TCP")
         elif type(transport) == dpkt.udp.UDP:
             src_port = transport.sport
             dst_port = transport.dport
-            if src_port<1025:
+            if src_port < 1025:
                 nd.add_used_port(src_port, "UDP")
-            if dst_port<1025:
+            if dst_port < 1025:
                 nd.add_used_port(dst_port, "UDP")
     except AttributeError:      # Ignore packet if has no transport Layer
-        None
+        return
 
 
 def check_top_proto(pkt):
@@ -73,7 +74,7 @@ def check_top_proto(pkt):
             level = LEVEL_TCP
         level = LEVEL_APLICATION
     except AttributeError:      # Found top level protocol
-        None
+        return level
     return level
 
 
@@ -130,12 +131,14 @@ def tcp_level(pkt):
     :param pkt:
     :return:
     """
+    # noinspection PyBroadException
     try:
         [src_mac, dst_mac] = mac_level(pkt)
         [ip_src_addr, ip_dst_addr, next_proto] = ip_level(pkt)
-    except:
+    except Exception:
         return
 
+    # noinspection PyBroadException
     try:
         if (next_proto is 6) or (next_proto is 17):     # TCP or UDP
             tcp_pkt = pkt.data.data
@@ -150,7 +153,7 @@ def tcp_level(pkt):
                 try:
                     application_level(src_mac, tcp_pkt.data)
                 except AttributeError:
-                    None
+                    pass
 
             # If destination ip address is private, packet receiver is in current network.
             # Store only most used service ports
@@ -160,7 +163,7 @@ def tcp_level(pkt):
                 try:
                     application_level(dst_mac, tcp_pkt.data)
                 except AttributeError:
-                    None
+                    pass
 
         elif next_proto is 1:  # ICMP
             tcp_pkt = pkt.data.data
@@ -170,17 +173,17 @@ def tcp_level(pkt):
                 try:
                     application_level(src_mac, tcp_pkt.data)
                 except AttributeError:
-                    None
+                    pass
             if ipaddress.ip_address(ip_dst_addr).is_private:
                 # Alanize Application layer
                 try:
                     application_level(dst_mac, tcp_pkt.data)
                 except AttributeError:
-                    None
+                    pass
 
         elif next_proto is 112:
-            None
-    except:
+            pass
+    except Exception:
         print(next_proto)
 
 
@@ -190,10 +193,11 @@ def is_dns(pkt):
     :param pkt:
     :return:
     """
+    # noinspection PyBroadException
     try:
         dpkt.dns.DNS(pkt)
         return True
-    except:
+    except Exception:
         return False
 
 
@@ -203,10 +207,11 @@ def is_tls(pkt):
     :param pkt:
     :return:
     """
+    # noinspection PyBroadException
     try:
         dpkt.ssl.TLS(pkt)
         return True
-    except:
+    except Exception:
         return False
 
 
@@ -216,10 +221,11 @@ def is_http(pkt):
     :param pkt:
     :return:
     """
+    # noinspection PyBroadException
     try:
         dpkt.http.Message(pkt)
         return True
-    except:
+    except Exception:
         return False
 
 
@@ -229,10 +235,11 @@ def is_icmp(pkt):
     :param pkt:
     :return:
     """
+    # noinspection PyBroadException
     try:
         dpkt.icmp.ICMP(pkt)
         return True
-    except:
+    except Exception:
         return False
 
 
@@ -271,7 +278,8 @@ def main():
         # check source
         check_source(pkt)
         check_top_proto(pkt)
-    nd.show()
+
+    nd.show(file_name.replace(".pcap", ".log"))
 
 
 if __name__ == "__main__":
