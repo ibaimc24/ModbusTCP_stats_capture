@@ -1,0 +1,1402 @@
+{
+    "hosts": {
+        "00:00:5e:00:01:01": {
+            "ip_address": "192.168.1.253",
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:00:5e:00:01:02": {
+            "ip_address": "10.224.76.123",
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:01:02:b4:43:ba": {
+            "ip_address": "192.168.1.253",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                67,
+                53
+            ]
+        },
+        "00:01:e7:0a:94:40": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "00:08:9b:cb:b8:0e": {
+            "ip_address": "192.168.1.111",
+            "protocols": [
+                "ICMP",
+                "TLS",
+                "HTTP",
+                "DNS"
+            ],
+            "used_ports": [
+                138,
+                137
+            ]
+        },
+        "00:0a:f7:68:48:73": {
+            "ip_address": "192.168.1.147",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137
+            ]
+        },
+        "00:12:f0:99:63:71": {
+            "ip_address": "192.168.0.106",
+            "protocols": [
+                "LLC",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137,
+                123
+            ]
+        },
+        "00:19:21:4f:5a:ab": {
+            "ip_address": "192.168.1.175",
+            "protocols": [
+                "DNS",
+                "ICMP",
+                "TLS",
+                "HTTP"
+            ],
+            "used_ports": [
+                137,
+                138,
+                68
+            ]
+        },
+        "00:19:21:4f:5a:b0": {
+            "ip_address": "192.168.1.164",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "00:19:d1:04:fc:ce": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:1f:16:94:03:56": {
+            "ip_address": "192.168.1.224",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "00:1f:3a:90:88:4d": {
+            "ip_address": "192.168.1.222",
+            "protocols": [
+                "LLC",
+                "ICMP",
+                "TLS",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "00:22:15:48:2e:e7": {
+            "ip_address": "192.168.1.217",
+            "protocols": [
+                "DNS",
+                "ICMP",
+                "HTTP",
+                "TLS"
+            ],
+            "used_ports": [
+                137,
+                138
+            ]
+        },
+        "00:22:68:3a:06:eb": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                138,
+                137
+            ]
+        },
+        "00:22:b0:6f:ed:58": {
+            "ip_address": "192.168.1.10",
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:23:12:54:5d:98": {
+            "ip_address": "192.168.1.177",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138,
+                631
+            ]
+        },
+        "00:90:e8:22:80:e5": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:90:e8:36:77:b2": {
+            "ip_address": "192.168.1.120",
+            "protocols": [
+                "HTTP"
+            ],
+            "used_ports": [
+                502
+            ]
+        },
+        "00:90:e8:37:d4:bb": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:a1:0e:bb:57:22": {
+            "ip_address": "192.168.1.4",
+            "protocols": [],
+            "used_ports": []
+        },
+        "00:d0:f3:01:11:6f": {
+            "ip_address": "10.224.76.230",
+            "protocols": [
+                "HTTP"
+            ],
+            "used_ports": [
+                80
+            ]
+        },
+        "00:f7:6f:d7:f4:05": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:0c:cc:cc:cc": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:02": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:12": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:16": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:fb": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:fc": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "01:00:5e:00:00:fd": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:00:01:81": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:00:01:b2": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "01:00:5e:7f:ff:fa": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "01:80:c2:00:00:00": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "08:bd:43:cb:2b:3d": {
+            "ip_address": "192.168.1.214",
+            "protocols": [
+                "ICMP",
+                "TLS",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137
+            ]
+        },
+        "09:00:07:ff:ff:ff": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "09:00:09:00:00:67": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "10:2a:b3:14:d7:2d": {
+            "ip_address": "192.168.1.182",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "10:78:d2:97:5f:73": {
+            "ip_address": "192.168.1.134",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "18:a6:f7:6e:d6:5e": {
+            "ip_address": "192.168.0.1",
+            "protocols": [
+                "DNS",
+                "TLS",
+                "LLC",
+                "HTTP"
+            ],
+            "used_ports": [
+                53,
+                67,
+                80
+            ]
+        },
+        "18:a6:f7:6e:d6:5f": {
+            "ip_address": "192.168.1.252",
+            "protocols": [],
+            "used_ports": []
+        },
+        "18:f4:6a:bb:c2:c8": {
+            "ip_address": "192.168.1.173",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "20:a9:0e:9f:6a:bc": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "24:0a:64:37:3b:4b": {
+            "ip_address": "192.168.1.172",
+            "protocols": [
+                "ICMP",
+                "DNS",
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                138,
+                137,
+                68
+            ]
+        },
+        "28:5a:eb:9f:42:4e": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "28:fa:a0:98:9d:44": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "2c:0e:3d:c5:9b:f1": {
+            "ip_address": "192.168.1.151",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "33:33:00:00:00:01": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:00:00:00:02": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:00:00:00:0c": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "33:33:00:00:00:16": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:00:00:00:fb": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "33:33:00:01:00:02": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "33:33:00:01:00:03": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:3b:93:20:7e": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:01:59:a5": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:02:2c:67": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:07:50:24": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:0b:cf:18": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:11:09:74": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:14:d7:2d": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:20:0f:19": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:20:9e:bd": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:32:2d:81": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:33:29:a3": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:33:7c:88": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:39:54:87": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:39:6f:6c": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:3b:2e:ce": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:40:84:a6": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:42:7b:3f": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:44:e3:cf": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:46:0b:cf": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:49:fd:b2": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:53:13:81": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:54:5d:98": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:56:69:7e": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:59:f4:02": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:5a:73:59": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:5e:1b:4c": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:66:a5:de": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "33:33:ff:68:31:fa": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:69:d9:08": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:6c:44:ba": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:6d:29:19": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:78:42:ba": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:7b:48:e1": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:7c:3d:06": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:81:55:f7": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:83:36:eb": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:89:7e:15": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:8e:02:30": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:97:5f:73": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:98:65:30": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:98:9d:44": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:9f:6a:bc": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:a0:78:7c": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:a7:aa:cc": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:a8:01:3d": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:ab:f1:58": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:ac:b2:17": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:b1:0a:3a": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:ba:fe:85": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:bf:40:0e": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:c3:0a:16": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:c5:9b:f1": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:c8:31:fe": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:d1:0c:a3": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:d4:53:04": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:d7:6b:80": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:f1:0f:d2": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:f1:9b:12": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "33:33:ff:fd:4f:20": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "38:60:77:26:62:3a": {
+            "ip_address": "192.168.1.104",
+            "protocols": [
+                "ICMP",
+                "DNS",
+                "TLS",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137
+            ]
+        },
+        "38:60:77:26:62:e8": {
+            "ip_address": "192.168.1.103",
+            "protocols": [
+                "DNS",
+                "ICMP",
+                "HTTP",
+                "TLS"
+            ],
+            "used_ports": [
+                137,
+                138
+            ]
+        },
+        "38:60:77:39:6f:6c": {
+            "ip_address": "192.168.1.240",
+            "protocols": [
+                "DNS",
+                "ICMP",
+                "HTTP"
+            ],
+            "used_ports": [
+                53,
+                137
+            ]
+        },
+        "48:3c:0c:df:ce:bb": {
+            "ip_address": "192.168.1.148",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "48:50:73:7a:7f:70": {
+            "ip_address": "192.168.1.161",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "48:5a:3f:61:24:c6": {
+            "ip_address": "192.168.1.197",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "4c:0f:6e:6d:24:4b": {
+            "ip_address": "192.168.1.204",
+            "protocols": [
+                "ICMP",
+                "DNS",
+                "TLS",
+                "LLC",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137,
+                68
+            ]
+        },
+        "54:26:96:d0:15:05": {
+            "ip_address": "192.168.1.189",
+            "protocols": [
+                "TLS",
+                "LLC",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "54:ee:75:00:73:ab": {
+            "ip_address": "192.168.1.180",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137
+            ]
+        },
+        "58:91:cf:52:44:78": {
+            "ip_address": "192.168.1.202",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "60:92:17:7e:75:23": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "60:a4:4c:e7:17:e0": {
+            "ip_address": "192.168.1.211",
+            "protocols": [
+                "ICMP",
+                "TLS",
+                "HTTP",
+                "DNS"
+            ],
+            "used_ports": [
+                138,
+                137
+            ]
+        },
+        "64:76:ba:45:de:56": {
+            "ip_address": "192.168.1.145",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "6c:88:14:07:50:24": {
+            "ip_address": "192.168.1.183",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68,
+                138
+            ]
+        },
+        "70:4d:7b:bc:f3:dd": {
+            "ip_address": "192.168.1.193",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "74:c6:3b:81:79:39": {
+            "ip_address": "192.168.1.190",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "DNS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "78:92:9c:7d:72:56": {
+            "ip_address": "192.168.1.154",
+            "protocols": [
+                "ICMP",
+                "LLC",
+                "TLS",
+                "DNS"
+            ],
+            "used_ports": [
+                139,
+                68,
+                137,
+                138
+            ]
+        },
+        "7c:7a:91:5e:f0:d3": {
+            "ip_address": "192.168.1.235",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137
+            ]
+        },
+        "80:86:f2:be:b5:13": {
+            "ip_address": "192.168.1.144",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "84:4b:f5:0a:08:00": {
+            "ip_address": "192.168.0.103",
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "84:89:ad:ab:fe:87": {
+            "ip_address": "192.168.1.133",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "84:8e:df:39:54:87": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "88:cb:87:76:94:55": {
+            "ip_address": "192.168.1.221",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "90:1b:0e:cf:4e:d2": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "ICMP",
+                "DNS",
+                "TLS",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137,
+                68
+            ]
+        },
+        "9c:93:4e:72:d0:8f": {
+            "ip_address": "192.168.1.16",
+            "protocols": [],
+            "used_ports": []
+        },
+        "9c:b7:0d:7f:b3:a3": {
+            "ip_address": "192.168.1.176",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "9c:d2:1e:58:32:4b": {
+            "ip_address": "192.168.1.166",
+            "protocols": [
+                "ICMP",
+                "DNS",
+                "TLS",
+                "LLC",
+                "HTTP"
+            ],
+            "used_ports": [
+                138,
+                137,
+                68
+            ]
+        },
+        "a0:32:99:68:31:fa": {
+            "ip_address": "192.168.1.185",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "a4:31:35:da:81:e5": {
+            "ip_address": "192.168.1.169",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "a8:c8:3a:c3:0a:16": {
+            "ip_address": "192.168.1.131",
+            "protocols": [
+                "LLC",
+                "ICMP",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "ac:bc:32:c5:b0:4b": {
+            "ip_address": "192.168.1.137",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "b4:21:8a:f8:56:ee": {
+            "ip_address": "192.168.1.228",
+            "protocols": [
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "b4:b5:2f:2a:7c:13": {
+            "ip_address": "192.168.1.210",
+            "protocols": [
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "b8:27:eb:10:f3:22": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "b8:27:eb:86:39:28": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "b8:8d:12:0b:cf:18": {
+            "ip_address": "192.168.1.199",
+            "protocols": [
+                "TLS",
+                "LLC",
+                "DNS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "b8:98:f7:81:55:f7": {
+            "ip_address": "192.168.1.142",
+            "protocols": [
+                "TLS",
+                "LLC",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "bc:ee:7b:26:62:e7": {
+            "ip_address": "192.168.1.239",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "c0:bd:d1:83:36:eb": {
+            "ip_address": "192.168.1.132",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "c0:ee:fb:42:7b:3f": {
+            "ip_address": "192.168.1.163",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "c4:34:6b:79:21:6f": {
+            "ip_address": "192.168.1.230",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                138,
+                137
+            ]
+        },
+        "c4:86:e9:69:d9:08": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "c4:8e:8f:f6:19:55": {
+            "ip_address": "192.168.1.174",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "c8:d3:a3:56:69:7e": {
+            "ip_address": "192.168.1.162",
+            "protocols": [
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "c8:f7:33:f8:ba:e7": {
+            "ip_address": "192.168.1.139",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "d0:53:49:e0:83:83": {
+            "ip_address": "192.168.1.150",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP",
+                "DNS"
+            ],
+            "used_ports": [
+                68,
+                137
+            ]
+        },
+        "d4:97:0b:46:0b:cf": {
+            "ip_address": "192.168.1.158",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "d8:80:39:50:77:a9": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "d8:80:39:50:b9:d7": {
+            "ip_address": null,
+            "protocols": [],
+            "used_ports": []
+        },
+        "e0:cb:4e:c8:31:fe": {
+            "ip_address": "10.224.76.123",
+            "protocols": [],
+            "used_ports": []
+        },
+        "ec:10:7b:78:42:ba": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "ec:c8:82:21:d4:01": {
+            "ip_address": null,
+            "protocols": [
+                "LLC"
+            ],
+            "used_ports": []
+        },
+        "ec:c8:82:21:d4:42": {
+            "ip_address": "10.224.4.84",
+            "protocols": [
+                "HTTP"
+            ],
+            "used_ports": [
+                80
+            ]
+        },
+        "f0:1f:af:02:2c:67": {
+            "ip_address": "192.168.1.184",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "HTTP"
+            ],
+            "used_ports": [
+                68,
+                137,
+                138
+            ]
+        },
+        "f0:5b:7b:32:2d:81": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS",
+                "ICMP"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "fc:fc:48:09:04:b7": {
+            "ip_address": "0.0.0.0",
+            "protocols": [
+                "LLC",
+                "TLS"
+            ],
+            "used_ports": [
+                68
+            ]
+        },
+        "ff:ff:ff:ff:ff:ff": {
+            "ip_address": "192.168.1.255",
+            "protocols": [
+                "TLS",
+                "ICMP",
+                "DNS",
+                "LLC",
+                "HTTP"
+            ],
+            "used_ports": [
+                67,
+                138,
+                137,
+                68,
+                631
+            ]
+        }
+    }
+}

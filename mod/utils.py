@@ -1,5 +1,6 @@
 from mod.fcodes import *
 import datetime
+from contextlib import suppress
 
 class Stats:
 
@@ -20,7 +21,6 @@ class Stats:
 
         self.n_others = 0
         # FCODE 2 stats
-
 
         self.switcher = {
             1: self.__1__,
@@ -223,40 +223,26 @@ class Stats:
         func = self.switcher.get(option, lambda: "Invalid Code")
         func(ts, psize, direction)
 
-    def to_file(self, filename='venv/log/stats.log'):
-        wf = open(filename, 'a')
-        try:
+    @staticmethod
+    def to_file(stats_array, filename='venv/log/stats.log'):
+        for s in stats_array:
+            wf = open(filename, 'a')
+            print("FROM " + str(s.source_address), file=wf)
             print("MODBUS CODE\t | \tN. PACKETS\t | \tTIME BTWEEN PKTS(s)\t | \tPCKT SIZES", file=wf)
-        except Exception:
-            None
-        try:
-            print(str(1) + "\t\t\t | \t\t" + str(self.n_1) + "\t | \t" + str(self.dif_media_1) + "\t | \t[10 Bytes:" + str(
-                self.psize_1_10) + ", 12 Bytes:" + str(self.psize_1_12) + ", Other size:" + str(self.psize_1_others) + "]",
-                  file=wf)
-        except Exception:
-            None
-        try:
-            print(str(2) + "\t\t\t | \t\t" + str(self.n_2) + "\t | \t" + str(self.dif_media_2) + "\t | \t[10 Bytes:" + str(
-                self.psize_2_10) + ", 12 Bytes:" + str(self.psize_2_12) + ", Other size:" + str(self.psize_2_others)+ "]",
-                  file=wf)
-        except Exception:
-            None
-        try:
-            print(self.dic)
-        except Exception:
-            None
-        try:
-
-            print(str(15) + "\t\t\t | \t\t" + str(self.n_15) + "\t | \t" + str(self.dif_media_15) + "\t | \t"+str(self.dic),
-                  file=wf)
-        except Exception:
-            None
-        try:
-            print("OTHERS: "+str(self.n_others), file=wf)
-        except Exception:
-            None
-
-
+            with suppress(Exception):
+                print(str(1) + "\t\t\t | \t\t" + str(s.n_1) + "\t | \t" + str(s.dif_media_1) + "\t | \t[10 Bytes:"
+                      + str(s.psize_1_10) + ", 12 Bytes:" + str(s.psize_1_12) + ", Other size:"
+                      + str(s.psize_1_others) + "]",
+                      file=wf)
+                print(
+                    str(2) + "\t\t\t | \t\t" + str(s.n_2) + "\t | \t" + str(s.dif_media_2) + "\t | \t[10 Bytes:" + str(
+                        s.psize_2_10) + ", 12 Bytes:" + str(s.psize_2_12) + ", Other size:" + str(
+                        s.psize_2_others) + "]",
+                    file=wf)
+                print(
+                    str(15) + "\t\t\t | \t\t" + str(s.n_15) + "\t | \t" + str(s.dif_media_15) + "\t | \t" + str(s.dic),
+                    file=wf)
+                print("OTHERS: " + str(s.n_others), file=wf)
 
     '''
         To Update Modbus Packets per second
@@ -271,31 +257,19 @@ class Stats:
             pps = self.n_packets / (dif.microseconds)
             print(pps)
 
-
     def show(self):
-        print("# ------------ #" + self.source_address + "# ------------ #")
-        print("MODBUS CODE\t | \tN. PACKETS\t | \tTIME BTWEEN PKTS(s)\t | \tPCKT SIZES")
-        try:
+        with suppress(Exception):
+            print("# ------------ #" + self.source_address + "# ------------ #")
+            print("MODBUS CODE\t | \tN. PACKETS\t | \tTIME BTWEEN PKTS(s)\t | \tPCKT SIZES")
             print(str(1) + "\t\t\t | \t\t" + str(self.n_1) + "\t | \t" + str(self.dif_media_1) + "\t | \t[10 Bytes:" + str(
                 self.psize_1_10) + ", 12 Bytes:" + str(self.psize_1_12) + ", Other size:" + str(self.psize_1_others) + "]")
-        except Exception:
-            None
-        try:
-                print(str(2) + "\t\t\t | \t\t" + str(self.n_2) + "\t | \t" + str(self.dif_media_2) + "\t | \t[10 Bytes:" + str(
-                self.psize_2_10) + ", 12 Bytes:" + str(self.psize_2_12) + ", Other size:" + str(self.psize_2_others) + "]")
-        except Exception:
-            None
-        try:
-            print(self.dic)
-        except Exception:
-            None
-        try:
+
+            print(str(2) + "\t\t\t | \t\t" + str(self.n_2) + "\t | \t" + str(self.dif_media_2) + "\t | \t[10 Bytes:" + str(
+                self.psize_2_10) + ", 12 Bytes:" + str(self.psize_2_12)
+                  + ", Other size:" + str(self.psize_2_others) + "]")
             print(
-                str(15) + "\t\t\t | \t\t" + str(self.n_15) + "\t | \t" + str(self.dif_media_15) + "\t | \t" + str(self.dic))
-        except Exception:
-            None
-
-
-        print("------------------------------------------------------\n\n")
+                str(15) + "\t\t\t | \t\t" + str(self.n_15) + "\t | \t"
+                + str(self.dif_media_15) + "\t | \t" + str(self.dic))
+            print("------------------------------------------------------\n\n")
 
 

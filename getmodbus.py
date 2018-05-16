@@ -7,8 +7,8 @@ MOD_READ_DISC_IN = 2
 
 # 250V 200ma
 
-def main():
 
+def main():
     for i in range(1,7):
 
         modbus_packets = 0
@@ -34,7 +34,7 @@ def main():
                     if pkg.type==dpkt.ethernet.ETH_TYPE_IP: # CHeck if IP
                         ip_pkg = pkg.data
                         try:
-                            if ip_pkg.p==dpkt.ip.IP_PROTO_TCP and (ip_pkg.data.sport==502 or ip_pkg.data.dport==502 ) and ((ip_pkg.data.flags & dpkt.tcp.TH_PUSH)!=0): #Check if modbus by port and PUSH flag
+                            if ip_pkg.p == dpkt.ip.IP_PROTO_TCP and (ip_pkg.data.sport == 502 or ip_pkg.data.dport == 502 ) and ((ip_pkg.data.flags & dpkt.tcp.TH_PUSH)!=0): #Check if modbus by port and PUSH flag
                                 '''
                                 # MODBUS PACKET
                                 tcp_pkg = ip_pkg.data

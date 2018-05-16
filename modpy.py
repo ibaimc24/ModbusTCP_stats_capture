@@ -2,6 +2,7 @@ import socket
 import sys
 import dpkt
 from mod.mb import NetData
+
 from dpkt.compat import compat_ord
 import ipaddress
 
